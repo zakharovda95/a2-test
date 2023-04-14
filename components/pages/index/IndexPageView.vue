@@ -34,6 +34,15 @@
 
       <TransitionToCardForm class="my-4" />
     </PageSection>
+
+    <PageSection section-title="Прочие настройки">
+      <template #bodyDescription>
+        Выберите, каким образом будет открываться детальное представление выбранного вами
+        транспорта.
+      </template>
+
+      <OtherSettingsForm class="my-4" />
+    </PageSection>
   </div>
 </template>
 
@@ -42,14 +51,16 @@ import Vue from 'vue';
 import PageSection from '~/components/shared/PageSection.vue';
 import UIText from '~/components/UI/UIText.vue';
 import UISwitcher from '~/components/UI/UISwitcher.vue';
-import AccountForm from '~/components/pages/index/AccountForm.vue';
-import NotificationForm from '~/components/pages/index/NotificationsForm.vue';
-import TransitionToCardForm from '~/components/pages/index/TransitionToCardForm.vue';
+import AccountForm from '~/components/pages/index/forms/AccountForm.vue';
+import NotificationForm from '~/components/pages/index/forms/NotificationsForm.vue';
+import TransitionToCardForm from '~/components/pages/index/forms/TransitionToCardForm.vue';
+import OtherSettingsForm from '~/components/pages/index/forms/OtherSettingsForm.vue';
 
 export default Vue.extend({
   name: 'IndexPageView',
 
   components: {
+    OtherSettingsForm,
     TransitionToCardForm,
     NotificationForm,
     AccountForm,

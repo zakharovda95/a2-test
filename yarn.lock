@@ -915,7 +915,7 @@
   "resolved" "https://registry.npmjs.org/@babel/regjsgen/-/regjsgen-0.8.0.tgz"
   "version" "0.8.0"
 
-"@babel/runtime@^7.13.10", "@babel/runtime@^7.15.4", "@babel/runtime@^7.21.0", "@babel/runtime@^7.8.4":
+"@babel/runtime@^7.15.4", "@babel/runtime@^7.21.0", "@babel/runtime@^7.8.4":
   "integrity" "sha512-xwII0//EObnq89Ji5AKYQaRYiW/nZ3llSv29d49IuxPhKbtJoLP+9QUUZ4nVragQVtaVGeZrpB+ZtG/Pdy/POw=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.21.0.tgz"
   "version" "7.21.0"
@@ -7514,7 +7514,7 @@
   dependencies:
     "ts-pnp" "^1.1.6"
 
-"popper.js@^1.14.7", "popper.js@^1.16.1":
+"popper.js@^1.14.7":
   "integrity" "sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ=="
   "resolved" "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1.tgz"
   "version" "1.16.1"
@@ -9918,16 +9918,6 @@
   "resolved" "https://registry.npmjs.org/utils-merge/-/utils-merge-1.0.1.tgz"
   "version" "1.0.1"
 
-"v-tooltip@^2.1.3":
-  "integrity" "sha512-xXngyxLQTOx/yUEy50thb8te7Qo4XU6h4LZB6cvEfVd9mnysUxLEoYwGWDdqR+l69liKsy3IPkdYff3J1gAJ5w=="
-  "resolved" "https://registry.npmjs.org/v-tooltip/-/v-tooltip-2.1.3.tgz"
-  "version" "2.1.3"
-  dependencies:
-    "@babel/runtime" "^7.13.10"
-    "lodash" "^4.17.21"
-    "popper.js" "^1.16.1"
-    "vue-resize" "^1.0.1"
-
 "validate-npm-package-license@^3.0.1":
   "integrity" "sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew=="
   "resolved" "https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz"
@@ -9987,17 +9977,15 @@
   dependencies:
     "deepmerge" "^4.2.2"
 
+"vue-multiselect@^2.1.7":
+  "integrity" "sha512-KIegcN+Ntwg3cbkY/jhw2s/+XJUM0Lpi/LcKFYCS8PrZHcWBl2iKCVze7ZCnRj3w8H7/lUJ9v7rj9KQiNxApBw=="
+  "resolved" "https://registry.npmjs.org/vue-multiselect/-/vue-multiselect-2.1.7.tgz"
+  "version" "2.1.7"
+
 "vue-no-ssr@^1.1.1":
   "integrity" "sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g=="
   "resolved" "https://registry.npmjs.org/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz"
   "version" "1.1.1"
-
-"vue-resize@^1.0.1":
-  "integrity" "sha512-z5M7lJs0QluJnaoMFTIeGx6dIkYxOwHThlZDeQnWZBizKblb99GSejPnK37ZbNE/rVwDcYcHY+Io+AxdpY952w=="
-  "resolved" "https://registry.npmjs.org/vue-resize/-/vue-resize-1.0.1.tgz"
-  "version" "1.0.1"
-  dependencies:
-    "@babel/runtime" "^7.13.10"
 
 "vue-router@^3.6.5":
   "integrity" "sha512-VYXZQLtjuvKxxcshuRAwjHnciqZVoXAjTjcqBTz4rKc8qih9g9pI3hbDjmqXaHdgL3v8pV6P8Z335XvHzESxLQ=="
@@ -10026,13 +10014,6 @@
     "hash-sum" "^1.0.2"
     "loader-utils" "^1.0.2"
 
-"vue-switches@^2.0.1":
-  "integrity" "sha512-rDqBtK3TKy1pEvyZeWmnSHVeXqAcn+ozch7LiNThBzr1QMjg5rhvqBY7uWeli/baDDslf6CXmBJbHPwASJLqoA=="
-  "resolved" "https://registry.npmjs.org/vue-switches/-/vue-switches-2.0.1.tgz"
-  "version" "2.0.1"
-  dependencies:
-    "vue" "^2.2.6"
-
 "vue-template-compiler@*", "vue-template-compiler@^2.6.14", "vue-template-compiler@^2.7.10", "vue-template-compiler@^2.7.14":
   "integrity" "sha512-zyA5Y3ArvVG0NacJDkkzJuPQDF8RFeRlzV2vLeSnhSpieO6LK2OVbdLPi5MPPs09Ii+gMO8nY4S3iKQxBxDmWQ=="
   "resolved" "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.7.14.tgz"
@@ -10057,7 +10038,7 @@
     "lodash.pickby" "^4.6.0"
     "tippy.js" "^4.2.1"
 
-"vue@*", "vue@^2.0.0", "vue@^2.2.6", "vue@^2.5.9", "vue@^2.6.0", "vue@^2.7.10":
+"vue@*", "vue@^2.0.0", "vue@^2.5.9", "vue@^2.7.10":
   "integrity" "sha512-b2qkFyOM0kwqWFuQmgd4o+uHGU7T+2z3T+WQp8UBjADfEv2n4FEMffzBmCKNP0IGzOEEfYjvtcC62xaSKeQDrQ=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-2.7.14.tgz"
   "version" "2.7.14"

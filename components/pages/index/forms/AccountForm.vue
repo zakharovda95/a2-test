@@ -1,5 +1,5 @@
 <template>
-  <form action="" class="w-full">
+  <FormGroup>
     <UIInput
       label="Компания"
       class="my-4"
@@ -35,18 +35,21 @@
       @update:model-value="body.company = $event"
     />
     <p class="text-[14px] text-lightgray relative left-[120px] top-[-10px]">* не обязательно</p>
-  </form>
+  </FormGroup>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+
 import UIInput from '~/components/UI/UIInput.vue';
+import FormGroup from '~/components/shared/FormGroup.vue';
 
 export default Vue.extend({
   name: 'AccountForm',
 
   components: {
     UIInput,
+    FormGroup,
   },
 
   data: () => ({

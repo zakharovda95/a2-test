@@ -15,7 +15,7 @@ export default {
 
   css: [],
 
-  plugins: [{ src: '~/plugins/tooltip.ts', ssr: false }],
+  plugins: [{ src: '~/plugins/tooltip.ts', ssr: false }, { src: '~/plugins/select.ts' }],
 
   components: true,
 
