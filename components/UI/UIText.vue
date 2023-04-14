@@ -1,0 +1,28 @@
+<template>
+  <div>
+    <p v-if="!title" v-bind="$attrs" class="text-text-description leading-text-lh">
+      <slot />
+    </p>
+    <h3 v-if="title" v-bind="$attrs" class="text-text-header leading-header-lh font-bold">
+      <slot />
+    </h3>
+  </div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
+  name: 'UIText',
+
+  inheritAttrs: false,
+
+  props: {
+    title: {
+      type: Boolean,
+      required: false,
+      default: () => false,
+    },
+  },
+});
+</script>
