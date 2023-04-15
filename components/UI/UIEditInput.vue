@@ -6,6 +6,7 @@
       @click.native="isInputShowed = !isInputShowed"
     />
     <UIInput
+      id="id"
       v-else
       :model-value="modelValue"
       @update:modelValue="$emit('update:model-value', $event)"
@@ -24,6 +25,10 @@ export default Vue.extend({
   components: { UIInput, EditSvg },
 
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     modelValue: {
       type: String,
       required: true,

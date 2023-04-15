@@ -8,7 +8,7 @@
     </NuxtLink>
     <NuxtLink
       class="p-4 bg-green text-white rounded-sm w-[200px] text-center text-text-header hover:opacity-[0.8] transition-[1s]"
-      to="/auth/registration"
+      to="/auth/register"
     >
       Регистрация
     </NuxtLink>

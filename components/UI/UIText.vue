@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p v-if="!title" v-bind="$attrs" class="text-text-description leading-text-lh">
+    <p v-if="!title" v-bind="$attrs" class="leading-text-lh">
       <slot />
     </p>
     <h3 v-if="title" v-bind="$attrs" class="text-text-header leading-header-lh font-bold">

@@ -2,14 +2,15 @@
   <div class="flex w-full justify-between">
     <label
       v-if="label"
-      for="input"
+      :for="id"
       class="text-text-description mr-5"
       style="width: 100px !important"
     >
       {{ label }}
     </label>
     <input
-      id="input"
+      :type="type"
+      :id="id"
       class="h-[35px] min-w-[240px] rounded-[3px] border-[1px] border-lightgray outline-none focus:border-green px-3"
       :value="modelValue"
       @input="$emit('update:model-value', $event.target.value)"
@@ -17,13 +18,17 @@
   </div>
 </template>
 
-<script lang="js">
-import Vue from 'vue';
+<script lang="ts">
+import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
   name: 'UIInput',
 
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     modelValue: {
       type: String,
       required: true,
@@ -33,8 +38,13 @@ export default Vue.extend({
       required: false,
       default: () => '',
     },
-  },
+    type: {
+      type: String as PropType<'text' | 'password' | 'number'>,
+      required: false,
+      default: () => 'text',
+    },
 
-  emits: ['update:modelValue'],
+    emits: ['update:modelValue'],
+  },
 });
 </script>

@@ -13,9 +13,10 @@
   </div>
 </template>
 
-<script lang="js">
-import Vue from 'vue';
+<script lang="ts">
+import Vue, { PropType } from 'vue';
 import Multiselect from 'vue-multiselect';
+import { ITimezoneOption } from '~/helpers/types/pages/setting-page.type';
 
 export default Vue.extend({
   name: 'UISelect',
@@ -32,7 +33,7 @@ export default Vue.extend({
       required: false,
     },
     options: {
-      type: Object,
+      type: Object as PropType<ITimezoneOption>,
       required: true,
     },
   },

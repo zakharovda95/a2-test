@@ -5,7 +5,7 @@
       label="Выкл"
       model-value="off"
       name="notifications"
-      @update:model-value="notificationType = $event"
+      @update:model-value="setNotificationType($event)"
     />
 
     <UIRadio
@@ -14,7 +14,7 @@
       label="Push"
       model-value="push"
       name="notifications"
-      @update:model-value="notificationType = $event"
+      @update:model-value="setNotificationType($event)"
     >
       <template #additionalContent>
         <UIHelp text="Можно установить только в приложении" />
@@ -26,10 +26,14 @@
       label="Email"
       model-value="email"
       name="notifications"
-      @update:model-value="notificationType = $event"
+      @update:model-value="setNotificationType($event)"
     >
       <template #additionalContent>
-        <UIEditInput :model-value="editData.email" @update:model-value="editData.email" />
+        <UIEditInput
+          id="notifications-email"
+          :model-value="settings.email"
+          @update:model-value="setEmail($event)"
+        />
       </template>
     </UIRadio>
 
@@ -39,22 +43,27 @@
       model-value="telegram"
       name="notifications"
       label-link
-      @update:model-value="notificationType = $event"
+      @update:model-value="setNotificationType($event)"
     >
       <template #additionalContent>
-        <UIEditInput :model-value="editData.telegram" @update:model-value="editData.telegram" />
+        <UIEditInput
+          id="notifications-telegram"
+          :model-value="settings.telegram"
+          @update:model-value="setTelegram($event)"
+        />
       </template>
     </UIRadio>
   </FormGroup>
 </template>
 
-<script lang="js">
+<script lang="ts">
 import Vue from 'vue';
 
 import UIRadio from '~/components/UI/UIRadio.vue';
 import UIEditInput from '~/components/UI/UIEditInput.vue';
 import UIHelp from '~/components/UI/UIHelp.vue';
 import FormGroup from '~/components/shared/FormGroup.vue';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default Vue.extend({
   name: 'NotificationForm',
@@ -66,12 +75,18 @@ export default Vue.extend({
     FormGroup,
   },
 
-  data: () => ({
-    notificationType: '',
-    editData: {
-      email: '',
-      telegram: '',
-    },
-  }),
+  computed: {
+    ...mapGetters({
+      settings: 'settings.store/settings',
+    }),
+  },
+
+  methods: {
+    ...mapMutations({
+      setEmail: 'settings.store/setEmail',
+      setNotificationType: 'settings.store/setNotificationType',
+      setTelegram: 'settings.store/setTelegram',
+    }),
+  },
 });
 </script>

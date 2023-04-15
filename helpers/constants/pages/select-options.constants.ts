@@ -1,4 +1,6 @@
-export const TIMEZONE_OPTIONS = [
+import { ITimezoneOption } from '~/helpers/types/pages/setting-page.type';
+
+export const TIMEZONE_OPTIONS: ITimezoneOption[] = [
   {
     id: 1,
     name: 'Калининград',

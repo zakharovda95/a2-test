@@ -2,7 +2,10 @@
   <form action="" class="w-full min-h-[100vh] p-padding-base flex flex-col gap-5 max-w-[900px]">
     <PageSection section-title="Звонок через SIP">
       <template #headerAction>
-        <UISwitcher class="relative top-[5px]" @switch="enabled = !enabled" />
+        <UISwitcher
+          class="relative top-[5px]"
+          @switch="$store.commit('settings.store/setUseSip')"
+        />
       </template>
 
       <template #bodyDescription>
@@ -47,7 +50,7 @@
   </form>
 </template>
 
-<script lang="js">
+<script lang="ts">
 import Vue from 'vue';
 import PageSection from '~/components/shared/PageSection.vue';
 import UIText from '~/components/UI/UIText.vue';
@@ -59,7 +62,7 @@ import OtherSettingsForm from '~/components/pages/settings/forms/OtherSettingsFo
 import UIButton from '~/components/UI/UIButton.vue';
 
 export default Vue.extend({
-  name: 'SettingsPageView',
+  name: 'SettingsForm',
 
   components: {
     UIButton,
@@ -71,9 +74,5 @@ export default Vue.extend({
     UIText,
     PageSection,
   },
-
-  data: () => ({
-    enabled: false,
-  }),
 });
 </script>

@@ -1,16 +1,15 @@
 <template>
   <main>
-    <SettingsPageView />
+    <SettingsForm />
   </main>
 </template>
 
-<script lang="js">
+<script lang="ts">
 import Vue from 'vue';
-import SettingsPageView from '~/components/pages/settings/SettingsPageView.vue';
+import SettingsForm from '~/components/pages/settings/forms/SettingsForm.vue';
 
 export default Vue.extend({
-  components: {
-    SettingsPageView,
-  },
+  name: 'SettingsPage',
+  components: { SettingsForm },
 });
 </script>
