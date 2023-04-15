@@ -1,7 +1,7 @@
 <template>
   <div>
-    <UIText v-if="title" class="text-[20px] font-bold">{{ title }}</UIText>
-    <div>
+    <UIText v-if="title" class="text-[20px] font-bold mb-4">{{ title }}</UIText>
+    <div class="flex flex-col gap-4">
       <slot />
     </div>
   </div>
