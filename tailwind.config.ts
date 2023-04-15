@@ -7,6 +7,10 @@ module.exports = {
     './nuxt.config.{js,ts}',
   ],
   theme: {
+    screens: {
+      full: '878px',
+    },
+
     extend: {
       fontSize: {
         'text-header': '20px',

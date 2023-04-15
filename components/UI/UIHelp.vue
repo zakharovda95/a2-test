@@ -11,7 +11,7 @@
   </UIButton>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import UIButton from '~/components/UI/UIButton.vue';
 export default Vue.extend({

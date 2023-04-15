@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto flex gap-gap-lg">
+  <section class="w-full h-auto flex full:flex-row flex-col">
     <div class="w-[300px] flex gap-[15px]">
       <UIText title>{{ sectionTitle }}</UIText>
 
@@ -17,10 +17,10 @@
         <slot />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import UIText from '~/components/UI/UIText.vue';
 

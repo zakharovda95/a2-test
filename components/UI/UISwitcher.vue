@@ -15,13 +15,15 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 
 export default Vue.extend({
   name: 'UISwitcher',
 
   inheritAttrs: false,
+
+  emits: ['switch'],
 
   data: () => ({
     enabled: false,

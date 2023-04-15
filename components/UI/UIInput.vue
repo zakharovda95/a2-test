@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -34,5 +34,7 @@ export default Vue.extend({
       default: () => '',
     },
   },
+
+  emits: ['update:modelValue'],
 });
 </script>

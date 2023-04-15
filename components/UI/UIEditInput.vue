@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import EditSvg from '~/components/svg/EditSvg.vue';
 import UIInput from '~/components/UI/UIInput.vue';
@@ -34,6 +34,8 @@ export default Vue.extend({
       default: () => '',
     },
   },
+
+  emits: ['update:modelValue'],
 
   data: () => ({
     isInputShowed: false,

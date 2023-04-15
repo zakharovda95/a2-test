@@ -1,5 +1,4 @@
 import Vue from 'vue';
-// @ts-ignore
 import VueTippy, { TippyComponent } from 'vue-tippy';
 
 Vue.use(VueTippy, {

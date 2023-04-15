@@ -31,7 +31,7 @@
   </FormGroup>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import UIRadio from '~/components/UI/UIRadio.vue';
 import UIHelp from '~/components/UI/UIHelp.vue';

@@ -4,24 +4,25 @@
   </button>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue';
+<script lang="js">
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'UIButton',
 
   props: {
     customType: {
-      type: String as PropType<'renderless'>,
+      type: String,
       required: false,
-      default: () => 'renderless',
+      default: () => 'transparent',
     },
   },
 
   computed: {
     buttonView() {
       return {
-        'bg-transparent': this.customType === 'renderless',
+        'bg-transparent': this.customType === 'transparent',
+        'bg-green text-white rounded-[3px] h-[40px]': this. customType === 'green-large'
       };
     },
   },

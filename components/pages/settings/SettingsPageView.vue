@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-[100vh] p-padding-base flex flex-col gap-5">
+  <form action="" class="w-full min-h-[100vh] p-padding-base flex flex-col gap-5 max-w-[900px]">
     <PageSection section-title="Звонок через SIP">
       <template #headerAction>
         <UISwitcher class="relative top-[5px]" @switch="enabled = !enabled" />
@@ -41,25 +41,28 @@
         транспорта.
       </template>
 
-      <OtherSettingsForm class="my-4" />
+      <OtherSettingsForm class="my-4 border-b-[1px] border-lightgray" />
+      <UIButton class="w-full" custom-type="green-large"> Сохранить </UIButton>
     </PageSection>
-  </div>
+  </form>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import PageSection from '~/components/shared/PageSection.vue';
 import UIText from '~/components/UI/UIText.vue';
 import UISwitcher from '~/components/UI/UISwitcher.vue';
-import AccountForm from '~/components/pages/index/forms/AccountForm.vue';
-import NotificationForm from '~/components/pages/index/forms/NotificationsForm.vue';
-import TransitionToCardForm from '~/components/pages/index/forms/TransitionToCardForm.vue';
-import OtherSettingsForm from '~/components/pages/index/forms/OtherSettingsForm.vue';
+import AccountForm from '~/components/pages/settings/forms/AccountForm.vue';
+import NotificationForm from '~/components/pages/settings/forms/NotificationsForm.vue';
+import TransitionToCardForm from '~/components/pages/settings/forms/TransitionToCardForm.vue';
+import OtherSettingsForm from '~/components/pages/settings/forms/OtherSettingsForm.vue';
+import UIButton from '~/components/UI/UIButton.vue';
 
 export default Vue.extend({
-  name: 'IndexPageView',
+  name: 'SettingsPageView',
 
   components: {
+    UIButton,
     OtherSettingsForm,
     TransitionToCardForm,
     NotificationForm,

@@ -1,20 +1,15 @@
 <template>
-  <div class="border-b-[1px] border-lightgray justify-between flex p-4">
-    <div class="flex gap-3">
+  <div class="flex justify-between">
+    <div class="flex gap-5 cursor-pointer">
       <input
+        class="h-[18px] w-[18px]"
         :id="id"
-        ref="radio"
         v-bind="$attrs"
-        type="radio"
+        type="checkbox"
         :value="modelValue"
-        @change="$emit('update:model-value', $event.target.value)"
+        @change="$emit('update:model-value', $event.target.checked)"
       />
-      <label class="text-[17px] text-gray cursor-pointer" :for="id">
-        <NuxtLink v-if="labelLink" class="underline text-green" to="/">
-          {{ label }}
-        </NuxtLink>
-        <span v-if="!labelLink">{{ label }}</span>
-      </label>
+      <label class="text-[14px] max-w-[200px]" :for="id">{{ label }}</label>
     </div>
 
     <slot name="additionalContent" />
@@ -25,28 +20,23 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'UIRadio',
+  name: 'UICheckbox',
 
   inheritAttrs: false,
 
   props: {
-    modelValue: {
+    id: {
       type: String,
       required: true,
     },
-    id: {
-      type: String,
+    modelValue: {
+      type: Boolean,
       required: true,
     },
     label: {
       type: String,
       required: false,
       default: () => '',
-    },
-    labelLink: {
-      type: Boolean,
-      required: false,
-      default: () => false,
     },
   },
 
@@ -60,7 +50,7 @@ label {
   cursor: pointer;
 }
 
-input[type='radio'] {
+input[type='checkbox'] {
   position: relative;
   height: 20px;
   width: 20px;
@@ -68,33 +58,37 @@ input[type='radio'] {
   outline: none;
 }
 
-input[type='radio']::before {
+input[type='checkbox']::before {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
   width: 20px;
   height: 20px;
-  border-radius: 50%;
+  border-radius: 3px;
   transform: translate(-50%, -50%);
   background-color: white;
-  border: 2px solid #2dc574;
+  border: 1px solid #2dc574;
 }
 
-input[type='radio']:disabled::after,
-input[type='radio']:disabled::before {
+input[type='checkbox']:checked::before {
+  background-color: #2dc574;
+}
+
+input[type='checkbox']:disabled::after,
+input[type='checkbox']:disabled::before {
   opacity: 0.3;
 }
 
-input[type='radio']:checked::after {
-  content: '';
+input[type='checkbox']:checked::after {
+  content: '✓️';
   position: absolute;
-  top: 50%;
-  left: 50%;
+  color: white;
+  top: 17%;
+  left: 45%;
   width: 10px;
   height: 10px;
-  border-radius: 50%;
-  background-color: #2dc574;
+  background-color: transparent;
   transform: translate(-50%, -50%);
   /*visibility: visible;*/
 }

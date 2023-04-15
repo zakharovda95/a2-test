@@ -1,13 +1,13 @@
 <template>
   <div>
     <UIText v-if="title" class="text-[20px] font-bold">{{ title }}</UIText>
-    <form action="">
+    <div>
       <slot />
-    </form>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import UIText from '~/components/UI/UIText.vue';
 
