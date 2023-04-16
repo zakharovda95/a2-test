@@ -1,7 +1,7 @@
 version: '3.6'
 
 services:
-  a2Nuxt:
+  a2test:
     ports:
       - '3000:3000'
     user: node

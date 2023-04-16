@@ -20,14 +20,9 @@
 
 <script lang="js">
 import Vue from 'vue';
-import Multiselect from 'vue-multiselect';
 
 export default Vue.extend({
   name: 'UISelect',
-
-  components: {
-    Multiselect,
-  },
 
   inheritAttrs: false,
 
