@@ -25,9 +25,9 @@ export default Vue.extend({
 
   emits: ['switch'],
 
-  data: () => ({
+  props: {
     enabled: false,
-  }),
+  },
 
   computed: {
     switchPosition() {
@@ -40,8 +40,8 @@ export default Vue.extend({
 
   methods: {
     goSwitch() {
-      this.$emit('switch');
       this.enabled = !this.enabled;
+      this.$emit('switch', this.enabled);
     },
   },
 });

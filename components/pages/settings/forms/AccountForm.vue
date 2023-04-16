@@ -4,7 +4,7 @@
       id="settings-company"
       label="Компания"
       class="my-4"
-      :model-value="settings.company"
+      :model-value="settings?.companyname"
       @update:model-value="setCompany($event)"
     />
 
@@ -12,7 +12,7 @@
       id="settings-login"
       label="Логин"
       class="my-4"
-      :model-value="settings.login"
+      :model-value="settings?.login"
       @update:model-value="setLogin($event)"
     />
 
@@ -20,7 +20,7 @@
       id="settings-phone"
       label="Номер телефона"
       class="my-4"
-      :model-value="settings.phoneNumber"
+      :model-value="settings?.phone"
       @update:model-value="setPhoneNumber($event)"
     />
 
@@ -28,7 +28,7 @@
       id="settings-name"
       label="Имя"
       class="my-4"
-      :model-value="settings.firstName"
+      :model-value="settings?.fname"
       @update:model-value="setFirstName($event)"
     />
 
@@ -36,14 +36,14 @@
       id="settings-second-name"
       label="Фамилия"
       class="my-4"
-      :model-value="settings.secondName"
+      :model-value="settings?.lname"
       @update:model-value="setSecondName($event)"
     />
     <p class="text-[14px] text-lightgray relative left-[120px] top-[-10px]">* не обязательно</p>
   </FormGroup>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 
 import UIInput from '~/components/UI/UIInput.vue';
@@ -62,7 +62,7 @@ export default Vue.extend({
     ...mapMutations({
       setCompany: 'settings.store/setCompany',
       setLogin: 'settings.store/setLogin',
-      setPhoneNumber: 'settings.store/setPhoneNumber',
+      setPhoneNumber: 'settings.store/setPhone',
       setFirstName: 'settings.store/setFirstName',
       setSecondName: 'settings.store/setSecondName',
     }),
@@ -73,5 +73,16 @@ export default Vue.extend({
       settings: 'settings.store/settings',
     }),
   },
+
+
+  watch: {
+    settings: {
+      deep: true,
+      immediate: true,
+      handler() {
+        console.log(this.settings)
+      }
+    }
+  }
 });
 </script>

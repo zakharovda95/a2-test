@@ -40,7 +40,7 @@ export default Vue.extend({
     },
   },
 
-  emits: ['update:modelValue'],
+  emits: ['update:model-value'],
 
   data: () => ({
     isInputShowed: false,

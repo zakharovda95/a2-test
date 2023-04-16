@@ -1,59 +1,57 @@
-import { ITimezoneOption } from '~/helpers/types/pages/setting-page.type';
-
-export const TIMEZONE_OPTIONS: ITimezoneOption[] = [
+export const TIMEZONE_OPTIONS = [
   {
     id: 1,
     name: 'Калининград',
-    value: '',
+    value: 'Kaliningrad',
   },
   {
     id: 2,
     name: 'Москва',
-    value: '',
+    value: 'Moskow',
   },
   {
     id: 3,
     name: 'Самара',
-    value: '',
+    value: 'Samara',
   },
   {
     id: 4,
     name: 'Екатеринбург',
-    value: '',
+    value: 'Ekaterinburg',
   },
   {
     id: 5,
     name: 'Омск',
-    value: '',
+    value: 'Omsk',
   },
   {
     id: 6,
     name: 'Красноярск',
-    value: '',
+    value: 'Krasnoyarsk',
   },
   {
     id: 7,
     name: 'Иркутск',
-    value: '',
+    value: 'Irkutsk',
   },
   {
     id: 8,
     name: 'Якутск',
-    value: '',
+    value: 'Yakutsk',
   },
   {
     id: 9,
     name: 'Владивосток',
-    value: '',
+    value: 'Vladivostok',
   },
   {
     id: 10,
     name: 'Магадан',
-    value: '',
+    value: 'Magadan',
   },
   {
     id: 11,
     name: 'Камчатка',
-    value: '',
+    value: 'Kamchatka',
   },
 ];

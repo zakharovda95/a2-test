@@ -6,7 +6,7 @@
         :id="id"
         v-bind="$attrs"
         type="checkbox"
-        :value="modelValue"
+        :checked="modelValue"
         @change="$emit('update:model-value', $event.target.checked)"
       />
       <label class="text-[14px] max-w-[200px]" :for="id">{{ label }}</label>
@@ -40,7 +40,7 @@ export default Vue.extend({
     },
   },
 
-  emits: ['update:modelValue'],
+  emits: ['update:model-value']
 });
 </script>
 

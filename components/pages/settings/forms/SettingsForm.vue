@@ -4,7 +4,8 @@
       <template #headerAction>
         <UISwitcher
           class="relative top-[5px]"
-          @switch="$store.commit('settings.store/setUseSip')"
+          :enabled="!!$store.getters['settings.store/settings'].calltype"
+          @switch="$store.commit('settings.store/setUseSip', $event)"
         />
       </template>
 
@@ -45,12 +46,14 @@
       </template>
 
       <OtherSettingsForm class="my-4 border-b-[1px] border-lightgray" />
-      <UIButton class="w-full" custom-type="green-large"> Сохранить </UIButton>
+      <UIButton @click.native.prevent="send" class="w-full" custom-type="green-large">
+        Сохранить
+      </UIButton>
     </PageSection>
   </form>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 import PageSection from '~/components/shared/PageSection.vue';
 import UIText from '~/components/UI/UIText.vue';
@@ -60,6 +63,7 @@ import NotificationForm from '~/components/pages/settings/forms/NotificationsFor
 import TransitionToCardForm from '~/components/pages/settings/forms/TransitionToCardForm.vue';
 import OtherSettingsForm from '~/components/pages/settings/forms/OtherSettingsForm.vue';
 import UIButton from '~/components/UI/UIButton.vue';
+import { mapActions } from 'vuex';
 
 export default Vue.extend({
   name: 'SettingsForm',
@@ -73,6 +77,12 @@ export default Vue.extend({
     UISwitcher,
     UIText,
     PageSection,
+  },
+
+  methods: {
+    ...mapActions({
+      send: 'settings.store/putSettings',
+    }),
   },
 });
 </script>

@@ -10,7 +10,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import SettingsForm from '~/components/pages/settings/forms/SettingsForm.vue';
 

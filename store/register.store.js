@@ -1,25 +1,23 @@
-import { RegisterSoreState } from '~/helpers/types/store/register-store.type';
-
-export const state = (): RegisterSoreState => ({
+export const state = () => ({
   body: {
     phone: '',
   },
 });
 
 export const getters = {
-  phone(state): string {
+  phone(state) {
     return state.body.phone;
   },
 };
 
 export const mutations = {
-  setPhone(state, phone): void {
+  setPhone(state, phone) {
     state.body.phone = phone;
   },
 };
 
 export const actions = {
-  async register({ state, commit }): void {
+  async register({ state, commit }) {
     try {
       const { $requester, app } = $nuxt.context;
       const res = await $requester.post('register', { login: state.body.phone });

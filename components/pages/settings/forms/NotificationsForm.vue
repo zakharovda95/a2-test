@@ -3,7 +3,8 @@
     <UIRadio
       id="off"
       label="Выкл"
-      model-value="off"
+      value="-1"
+      :model-value="settings.notifytype"
       name="notifications"
       @update:model-value="setNotificationType($event)"
     />
@@ -12,7 +13,8 @@
       id="push"
       disabled
       label="Push"
-      model-value="push"
+      value="0"
+      :model-value="settings.notifytype"
       name="notifications"
       @update:model-value="setNotificationType($event)"
     >
@@ -24,7 +26,8 @@
     <UIRadio
       id="email"
       label="Email"
-      model-value="email"
+      value="1"
+      :model-value="settings.notifytype"
       name="notifications"
       @update:model-value="setNotificationType($event)"
     >
@@ -40,7 +43,8 @@
     <UIRadio
       id="telegram"
       label="Telegram ID"
-      model-value="telegram"
+      value="2"
+      :model-value="settings.notifytype"
       name="notifications"
       label-link
       @update:model-value="setNotificationType($event)"
@@ -48,7 +52,7 @@
       <template #additionalContent>
         <UIEditInput
           id="notifications-telegram"
-          :model-value="settings.telegram"
+          :model-value="settings.telegramChat"
           @update:model-value="setTelegram($event)"
         />
       </template>
@@ -56,7 +60,7 @@
   </FormGroup>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 
 import UIRadio from '~/components/UI/UIRadio.vue';

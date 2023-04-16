@@ -6,7 +6,7 @@
   </main>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 
 import LoginForm from '~/components/pages/auth/forms/LoginForm.vue';

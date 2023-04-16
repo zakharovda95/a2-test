@@ -6,8 +6,8 @@
         ref="radio"
         v-bind="$attrs"
         type="radio"
-        :value="modelValue"
-        @change="$emit('update:model-value', $event.target.value)"
+        :value="value"
+        v-model="modelValue"
       />
       <label class="text-[17px] text-gray cursor-pointer" :for="id">
         <NuxtLink v-if="labelLink" class="underline text-green" to="/">
@@ -43,6 +43,10 @@ export default Vue.extend({
       required: false,
       default: () => '',
     },
+    value: {
+      type: String,
+      required: true,
+    },
     labelLink: {
       type: Boolean,
       required: false,
@@ -50,7 +54,7 @@ export default Vue.extend({
     },
   },
 
-  emits: ['update:modelValue'],
+  emits: ['update:model-value'],
 });
 </script>
 

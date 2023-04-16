@@ -6,10 +6,9 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue';
+<script lang="js">
+import Vue from 'vue';
 import UIText from '~/components/UI/UIText.vue';
-import { IErrorsType } from '~/helpers/types/store/error-store.type';
 
 export default Vue.extend({
   name: 'UIError',
@@ -20,7 +19,7 @@ export default Vue.extend({
 
   props: {
     errors: {
-      type: Array as PropType<IErrorsType[]>,
+      type: Array,
       required: true,
     },
   },

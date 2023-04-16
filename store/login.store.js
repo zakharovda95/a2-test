@@ -1,6 +1,4 @@
-import { LoginStoreState } from '~/helpers/types/store/login-store.type';
-
-export const state = (): LoginStoreState => ({
+export const state = () => ({
   body: {
     login: '',
     password: '',
@@ -12,43 +10,43 @@ export const state = (): LoginStoreState => ({
 });
 
 export const getters = {
-  login(state): string {
+  login(state) {
     return state.body.login;
   },
-  password(state): string {
+  password(state) {
     return state.body.password;
   },
-  userToken(state): string | null {
+  userToken(state) {
     return state.userToken;
   },
-  userId(state): string | null {
+  userId(state) {
     return state.userId;
   },
-  isAuth(state): boolean {
+  isAuth(state) {
     return state.isAuth;
   },
 };
 
 export const mutations = {
-  setLogin(state, login): void {
+  setLogin(state, login) {
     state.body.login = login;
   },
-  setPassword(state, password): void {
+  setPassword(state, password) {
     state.body.password = password;
   },
-  setUserToken(state, token): void {
+  setUserToken(state, token) {
     state.userToken = token;
   },
-  setUserId(state, id): void {
+  setUserId(state, id) {
     state.userId = id;
   },
-  setIsAuth(state, value): void {
+  setIsAuth(state, value) {
     state.isAuth = value;
   },
 };
 
 export const actions = {
-  async login({ state, commit }): Promise<void> {
+  async login({ state, commit }) {
     try {
       const { $requester, app } = $nuxt.context;
       const res = await $requester.post('login', state.body);

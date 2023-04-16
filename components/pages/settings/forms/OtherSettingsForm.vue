@@ -1,7 +1,7 @@
 <template>
   <FormGroup>
     <UISelect
-      :model-value="settings.timezone"
+      :model-value="settings.timezonestring"
       @update:model-value="setTimezone($event)"
       class="my-3"
       label="Часовой пояс"
@@ -11,7 +11,7 @@
     <UICheckbox
       id="setting-1"
       class="my-3"
-      :model-value="settings.newAnnouncements"
+      :model-value="!settings.locklentaupdate"
       label="Автоматически переходить к новым объявлениям"
       @update:model-value="setNewAnnouncements($event)"
     >
@@ -23,7 +23,7 @@
     <UICheckbox
       id="setting-2"
       class="my-3"
-      :model-value="settings.enableColors"
+      :model-value="settings.colorlenta"
       label="Включить цвета в ленте"
       @update:model-value="setEnableColors($event)"
     >
@@ -34,7 +34,7 @@
   </FormGroup>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import UISelect from '~/components/UI/UISelect.vue';
 import FormGroup from '~/components/shared/FormGroup.vue';

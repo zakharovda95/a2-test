@@ -6,7 +6,12 @@
       :value="modelValueProxy"
       @change="modelValueProxy = $event.target.value"
     >
-      <option class="bg-green text-[white] p-3" v-for="option in options" :key="option.id">
+      <option
+        class="bg-green text-[white] p-3"
+        v-for="option in options"
+        :value="option.value"
+        :key="option.id"
+      >
         {{ option.name }}
       </option>
     </select>
@@ -14,9 +19,8 @@
 </template>
 
 <script lang="js">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 import Multiselect from 'vue-multiselect';
-import { ITimezoneOption } from '~/helpers/types/pages/setting-page.type';
 
 export default Vue.extend({
   name: 'UISelect',
@@ -41,6 +45,8 @@ export default Vue.extend({
       required: true,
     },
   },
+
+  emits: ['update:model-value'],
 
   computed: {
     modelValueProxy: {

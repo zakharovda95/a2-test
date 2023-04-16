@@ -12,7 +12,7 @@
   </FormGroup>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import { mapGetters, mapMutations, mapActions } from 'vuex';
 

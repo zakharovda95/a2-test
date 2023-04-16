@@ -1,26 +1,29 @@
 <template>
   <FormGroup title="Уведомления">
     <UIRadio
+      value="0"
       id="current"
       label="В карточку в текущем окне"
-      model-value="current-window"
+      :model-value="String(settings.redirecttarget)"
       name="transition"
       @update:model-value="setTransitionType($event)"
     />
 
     <UIRadio
+      value="1"
       id="separate"
       label="В карточку в отдельном окне"
-      model-value="separate-window"
+      :model-value="String(settings.redirecttarget)"
       name="transition"
       @update:model-value="setTransitionType($event)"
     >
     </UIRadio>
 
     <UIRadio
+      value="2"
       id="source"
       label="На источник"
-      model-value="source"
+      :model-value="String(settings.redirecttarget)"
       name="transition"
       @update:model-value="setTransitionType($event)"
     >

@@ -18,8 +18,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue, { PropType } from 'vue';
+<script lang="js">
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'UIInput',
@@ -39,12 +39,10 @@ export default Vue.extend({
       default: () => '',
     },
     type: {
-      type: String as PropType<'text' | 'password' | 'number'>,
+      type: String,
       required: false,
       default: () => 'text',
     },
-
-    emits: ['update:modelValue'],
   },
 });
 </script>

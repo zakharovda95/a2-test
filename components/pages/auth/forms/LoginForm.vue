@@ -19,7 +19,7 @@
   </FormGroup>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 
 import FormGroup from '~/components/shared/FormGroup.vue';
