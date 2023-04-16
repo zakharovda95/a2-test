@@ -7,7 +7,8 @@ RUN apk update && apk upgrade
 RUN apk add git
 
 
-COPY ../.. /usr/src/nuxt-app/
+#COPY ../.. /usr/src/nuxt-app/
+
 RUN npm install
 RUN npm run build
 
