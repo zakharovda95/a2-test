@@ -29,6 +29,14 @@ export default Vue.extend({
     enabled: false,
   },
 
+  data: () => ({
+    enabledProxy: null,
+  }),
+
+  mounted() {
+    this.enabledProxy = this.enabled
+  },
+
   computed: {
     switchPosition() {
       return {
@@ -40,8 +48,8 @@ export default Vue.extend({
 
   methods: {
     goSwitch() {
-      this.enabled = !this.enabled;
-      this.$emit('switch', this.enabled);
+      this.enabledProxy = !this.enabledProxy;
+      this.$emit('switch', this.enabledProxy);
     },
   },
 });

@@ -1,68 +1,27 @@
-# a2test
+# Тестовое задание VUE.JS от компании A2
 
-## Build Setup
+## Требования к функционалу
 
-```bash
-# install dependencies
-$ yarn install
+- Все действия на сайте роисходят без перезагрузки страницы.
+- После перезагрузки страницы отображаются измененные параметры.
+- Авторизация реализована через сохранение в куки токена и айди юзера после логина. На каждой странице стоит самописный миддлвейр-гвард (/middleware/guard.js) который вызывается перед переходом на каждую страницу. Он проверяет наличие токена и айди, если все в порядке появляется доступ к страницам покрытым авторизацией, если нет, то происходит редирект на главную. При нажатии кнопки "выход" все куки и данные стираются.
+- Запросы по API реализованы через экземпляр Axios который заинжечен в качества плагина (/plugins/requester.js). В самом плагине подтягиваются данные для базовых хедеров из файла .env. Токен указывается только для методов, в которых он необходим.
+- Все заимодействие с данными реализовано через стейт-менеджер Vuex 4. Стор разделен на логические модули. '/store/...'
 
-# serve with hot reload at localhost:3000
-$ yarn dev
 
-# build for production and launch server
-$ yarn build
-$ yarn start
+### Используемые библиотеки
 
-# generate static project
-$ yarn generate
-```
+- Nuxt 2.15
+- TailwindCSS
+- Nuxt User Agent
+- Vue The Mask
+- Vue Tippy
+- Vue2 Toast
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
-
-## Special Directories
-
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
-
-### `assets`
-
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+### Комментарии:
+- Для большинства UI компонентов решил не использовать библиотеки из за трудностей кастомизации и подключения модулей к накст (описание плагинов и тд).
+- Не знаю насколько нужно было делать похожей страницу на оригинал, тк информации об этом не было в задании, старался сделать похоже, но без фанатизма.
+- Немного не понял что значит авторизация на стороне сервера, сделал простую проверку на наличие токена в миддлваре - фактически на накст-сервере. Решил не использовать модуль nuxt-auth потому что приложение небольшое.
+- Ссылка на репозиторий https://github.com/zakharovda95/a2-test
+- Ссылка на приложение 
+- Затраченное время включая инициализацию проекта, настройку, описание readme и развертывание около 18 часов.

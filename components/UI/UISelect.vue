@@ -7,7 +7,7 @@
       @change="modelValueProxy = $event.target.value"
     >
       <option
-        class="bg-green text-[white] p-3"
+        class="bg-green text-[white] text-[1.1rem] p-[5px]"
         v-for="option in options"
         :value="option.value"
         :key="option.id"
@@ -54,7 +54,6 @@ export default Vue.extend({
         return this.modelValue;
       },
       set(val) {
-        console.log(val);
         this.$emit('update:model-value', val);
       },
     },

@@ -1,15 +1,18 @@
 <template>
   <div>
-    <EditSvg
-      v-if="!isInputShowed"
-      class="w-[24px] h-[24px] cursor-pointer"
-      @click.native="isInputShowed = !isInputShowed"
-    />
+    <div class="flex gap-4" v-if="!isInputShowed">
+      <UIText class="text-[14px]">{{ modelValue }}</UIText>
+      <EditSvg
+        class="w-[24px] h-[24px] cursor-pointer"
+        @click.native="isInputShowed = !isInputShowed"
+      />
+    </div>
+
     <UIInput
-      id="id"
+      :id="id"
       v-else
       :model-value="modelValue"
-      @update:modelValue="$emit('update:model-value', $event)"
+      @update:model-value="$emit('update:model-value', $event)"
     />
   </div>
 </template>
@@ -18,11 +21,12 @@
 import Vue from 'vue';
 import EditSvg from '~/components/svg/EditSvg.vue';
 import UIInput from '~/components/UI/UIInput.vue';
+import UIText from "~/components/UI/UIText.vue";
 
 export default Vue.extend({
   name: 'UIEditInput',
 
-  components: { UIInput, EditSvg },
+  components: { UIInput, EditSvg, UIText },
 
   props: {
     id: {

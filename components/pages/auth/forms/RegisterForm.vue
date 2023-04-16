@@ -3,6 +3,7 @@
     <UIInput
       id="phone"
       v-mask="'###########'"
+      label="Телефон"
       :model-value="phone"
       @update:model-value="setBody($event)"
     />

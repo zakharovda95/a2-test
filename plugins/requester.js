@@ -8,13 +8,14 @@ export default function ({ $axios, $ua, $config, store }, inject) {
     },
   };
 
-  if (isAuth) {
-    headers.common['X-User-Token'] = store.getters['login.store/userToken'];
-  }
+  // if (isAuth) {
+  //   headers.common['X-User-Token'] = store.getters['login.store/userToken'];
+  // }
 
   const api = $axios.create({
     headers,
   });
+
   api.setBaseURL($config.BACK_API);
   inject('requester', api);
 }

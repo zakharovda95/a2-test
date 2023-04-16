@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  a2Nuxt:
+    ports:
+      - '3000:3000'
+    user: node
+    env_file:
+      - .env
+    build:
+      dockerfile: Dockerfile
+      context: .
+    working_dir: /usr/src/nuxt-app
+    volumes:
+      - /usr/src/nuxt-app
+    command: sh -c "npm run start"
+    stdin_open: true
+    restart: always
+    tty: true
+    networks:
+      - default

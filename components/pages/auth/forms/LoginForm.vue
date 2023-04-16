@@ -4,11 +4,13 @@
       id="login-phone"
       v-mask="'###########'"
       :model-value="login"
+      label="Логин"
       @update:model-value="setLogin($event)"
     />
     <UIInput
       id="login-password"
       type="password"
+      label="Пароль"
       :model-value="password"
       @update:model-value="setPassword($event)"
     />

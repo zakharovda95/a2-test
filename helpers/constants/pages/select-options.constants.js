@@ -7,7 +7,7 @@ export const TIMEZONE_OPTIONS = [
   {
     id: 2,
     name: 'Москва',
-    value: 'Moskow',
+    value: 'Moscow',
   },
   {
     id: 3,
@@ -17,7 +17,7 @@ export const TIMEZONE_OPTIONS = [
   {
     id: 4,
     name: 'Екатеринбург',
-    value: 'Ekaterinburg',
+    value: 'Ekb',
   },
   {
     id: 5,

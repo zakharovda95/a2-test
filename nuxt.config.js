@@ -24,12 +24,12 @@ export default {
     BACK_API: process.env.BACK_API,
     X_API_KEY: process.env.X_APY_KEY,
   },
-  css: [],
+  css: ['~/assets/styles/main.css', 'vue2-toast/lib/toast.css'],
 
   plugins: [
     { src: '~/plugins/tooltip.js', ssr: false },
-    { src: '~/plugins/select.js' },
     { src: '~/plugins/requester.js' },
+    { src: '~/plugins/toast.js' },
   ],
 
   components: true,
@@ -38,5 +38,12 @@ export default {
 
   modules: ['@nuxtjs/axios', 'nuxt-user-agent', 'cookie-universal-nuxt'],
 
-  build: {},
+  build: {
+    vendor: ['vue2-toast'],
+    extend(config, ctx) {
+      if (ctx.isClient) {
+        config.resolve.alias['vue'] = 'vue/dist/vue.js';
+      }
+    },
+  },
 };

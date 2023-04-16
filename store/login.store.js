@@ -57,7 +57,7 @@ export const actions = {
         commit('setIsAuth', true);
 
         app.$cookies.set('userData', { token: res.data.token, id: res.data.user.id });
-        app.router.push('/settings');
+        await app.router.push('/settings');
       }
     } catch (err) {
       commit('errors.store/setLoginError', err.response?.data.errors, { root: true });

@@ -39,7 +39,6 @@ export const mutations = {
     state.body.lname = name;
   },
   setNotificationType(state, type) {
-    console.log(type);
     state.body.notifitype = type;
   },
   setEmail(state, email) {
@@ -74,27 +73,31 @@ export const actions = {
       const { $requester } = $nuxt.context;
 
       const res = await $requester.get(`user/${rootGetters['login.store/userId']}`, {
-        email: state.body.email,
+        headers: { 'X-User-Token': rootGetters['login.store/userToken'] },
       });
 
       if (res.status === 200) {
         commit('setBody', res.data);
-
-        console.log(state.body);
       }
     } catch (err) {
       commit('errors.store/setSettingsError', err.response?.data.errors, { root: true });
     }
   },
 
-  async putSettings({ state, commit }) {
+  async putSettings({ state, commit, rootGetters }) {
     try {
-      const { $requester, rootGetters } = $nuxt.context;
-      const res = await $requester.put(`user/${rootGetters['login.store/userId']}`, {
-        email: state.body.email,
-      });
+      const { $requester } = $nuxt.context;
+
+      const res = await $requester.put(
+        `user/${rootGetters['login.store/userId']}`,
+        { email: state.body.email },
+        {
+          headers: { 'X-User-Token': rootGetters['login.store/userToken'] },
+        },
+      );
+
       if (res.status === 200) {
-        console.log(res);
+        return true;
       }
     } catch (err) {
       commit('errors.store/setSettingsError', err.response?.data.errors, { root: true });

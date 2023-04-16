@@ -4,7 +4,7 @@
       <template #headerAction>
         <UISwitcher
           class="relative top-[5px]"
-          :enabled="!!$store.getters['settings.store/settings'].calltype"
+          :enabled="!!Number($store.getters['settings.store/settings'].calltype)"
           @switch="$store.commit('settings.store/setUseSip', $event)"
         />
       </template>
@@ -46,9 +46,10 @@
       </template>
 
       <OtherSettingsForm class="my-4 border-b-[1px] border-lightgray" />
-      <UIButton @click.native.prevent="send" class="w-full" custom-type="green-large">
+      <UIButton @click.native.prevent="sendReq" class="w-full" custom-type="green-large">
         Сохранить
       </UIButton>
+      <UIError v-if="errors" :errors="errors" />
     </PageSection>
   </form>
 </template>
@@ -57,19 +58,21 @@
 import Vue from 'vue';
 import PageSection from '~/components/shared/PageSection.vue';
 import UIText from '~/components/UI/UIText.vue';
+import UIError from '~/components/UI/UIError.vue';
 import UISwitcher from '~/components/UI/UISwitcher.vue';
 import AccountForm from '~/components/pages/settings/forms/AccountForm.vue';
 import NotificationForm from '~/components/pages/settings/forms/NotificationsForm.vue';
 import TransitionToCardForm from '~/components/pages/settings/forms/TransitionToCardForm.vue';
 import OtherSettingsForm from '~/components/pages/settings/forms/OtherSettingsForm.vue';
 import UIButton from '~/components/UI/UIButton.vue';
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default Vue.extend({
   name: 'SettingsForm',
 
   components: {
     UIButton,
+    UIError,
     OtherSettingsForm,
     TransitionToCardForm,
     NotificationForm,
@@ -79,10 +82,27 @@ export default Vue.extend({
     PageSection,
   },
 
+  computed: {
+    ...mapGetters({
+      errors: 'errors.store/settingsErr',
+    }),
+  },
+
   methods: {
     ...mapActions({
       send: 'settings.store/putSettings',
     }),
+
+    toast() {
+      this.$toast.top('Сохранено');
+    },
+
+    async sendReq() {
+      const res = await this.send();
+      if (res) {
+        this.toast();
+      }
+    },
   },
 });
 </script>

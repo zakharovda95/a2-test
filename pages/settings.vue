@@ -21,8 +21,8 @@ export default Vue.extend({
 
   middleware: 'guard',
 
-  async asyncData({ store }) {
-    await store.dispatch('settings.store/getUserData');
-  },
+  async created() {
+    await this.$store.dispatch('settings.store/getUserData');
+  }
 });
 </script>

@@ -10,9 +10,9 @@
         v-model="modelValue"
       />
       <label class="text-[17px] text-gray cursor-pointer" :for="id">
-        <NuxtLink v-if="labelLink" class="underline text-green" to="/">
+        <a v-if="labelLink" class="underline text-green" :href="labelLink">
           {{ label }}
-        </NuxtLink>
+        </a>
         <span v-if="!labelLink">{{ label }}</span>
       </label>
     </div>
@@ -48,9 +48,9 @@ export default Vue.extend({
       required: true,
     },
     labelLink: {
-      type: Boolean,
+      type: String,
       required: false,
-      default: () => false,
+      default: () => '',
     },
   },
 

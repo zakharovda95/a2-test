@@ -34,7 +34,7 @@
       <template #additionalContent>
         <UIEditInput
           id="notifications-email"
-          :model-value="settings.email"
+          :model-value="settings.email || ''"
           @update:model-value="setEmail($event)"
         />
       </template>
@@ -46,13 +46,13 @@
       value="2"
       :model-value="settings.notifytype"
       name="notifications"
-      label-link
+      label-link="https://avclick.me/v/AVinfoBot"
       @update:model-value="setNotificationType($event)"
     >
       <template #additionalContent>
         <UIEditInput
           id="notifications-telegram"
-          :model-value="settings.telegramChat"
+          :model-value="settings.telegramChat || ''"
           @update:model-value="setTelegram($event)"
         />
       </template>

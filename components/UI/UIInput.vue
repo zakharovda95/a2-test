@@ -1,11 +1,6 @@
 <template>
-  <div class="flex w-full justify-between">
-    <label
-      v-if="label"
-      :for="id"
-      class="text-text-description mr-5"
-      style="width: 100px !important"
-    >
+  <div class="flex full:flex-row flex-col w-full justify-between">
+    <label v-if="label" :for="id" class="w-[200px] full:w-[100px] text-text-description mr-5">
       {{ label }}
     </label>
     <input
