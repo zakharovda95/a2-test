@@ -13,7 +13,7 @@ export const state = (): SettingsStoreState => ({
     notificationType: '',
     email: '',
     telegram: '',
-    timezone: '',
+    timezone: 'Москва',
     newAnnouncements: false,
     enableColors: false,
     transitionType: '',
@@ -50,10 +50,11 @@ export const mutations = {
     state.body.email = email;
   },
   setTelegram(state, telegram): void {
-    state.body.email = telegram;
+    state.body.telegram = telegram;
   },
-  setTimezone(state, email): void {
-    state.body.email = email;
+  setTimezone(state, timezone): void {
+    console.log(timezone);
+    state.body.timezone = timezone;
   },
   setAnnouncements(state, value): void {
     state.body.newAnnouncements = value;
@@ -70,21 +71,26 @@ export const mutations = {
 };
 
 export const actions = {
-  async getUSerData({ state, commit }, userId: string, userToken: string): void {
+  async getUserData({ state, commit, rootState }): void {
+    console.log(rootState);
     try {
-      const { $requester, app } = $nuxt.context;
+      const { $requester } = $nuxt.context;
+
       const res = await $requester.get(
-        `user/${userId}`,
+        `user/${rootState['login.store/userId']}`,
         { email: state.body.email },
-        { 'X-User-Token': userToken },
+        { 'X-User-Token': rootState['login.store/userToken'] },
       );
+      console.log(res);
       if (res.status === 200) {
         console.log(res);
       }
-    } catch (err) {
-      commit('errors.store/setSettingsError', err.response.data.errors, { root: true });
+    } catch (err: any) {
+      //commit('errors.store/setSettingsError', err.response?.data.errors, { root: true });
+      console.log(err.response);
     }
   },
+
   async putSettings({ state, commit }, userId: string, userToken: string): void {
     try {
       const { $requester, app } = $nuxt.context;
@@ -96,7 +102,7 @@ export const actions = {
       if (res.status === 200) {
         console.log(res);
       }
-    } catch (err) {
+    } catch (err: any) {
       commit('errors.store/setSettingsError', err.response.data.errors, { root: true });
     }
   },

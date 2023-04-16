@@ -12,8 +12,12 @@ import Vue from 'vue';
 import LoginForm from '~/components/pages/auth/forms/LoginForm.vue';
 
 export default Vue.extend({
+  name: 'AuthLoginPage',
+
   components: {
     LoginForm,
   },
+
+  middleware: 'guard',
 });
 </script>

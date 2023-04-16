@@ -1,7 +1,8 @@
 <template>
   <FormGroup>
     <UISelect
-      v-model="body.timezone"
+      :model-value="settings.timezone"
+      @update:model-value="setTimezone($event)"
       class="my-3"
       label="Часовой пояс"
       :options="timezoneOptions"
@@ -10,9 +11,9 @@
     <UICheckbox
       id="setting-1"
       class="my-3"
-      :model-value="body.newAnnouncements"
+      :model-value="settings.newAnnouncements"
       label="Автоматически переходить к новым объявлениям"
-      @update:model-value="body.newAnnouncements = $event"
+      @update:model-value="setNewAnnouncements($event)"
     >
       <template #additionalContent>
         <UIHelp text="Лента будет автоматически обновляться 1 раз в 3 секунды" />
@@ -22,9 +23,9 @@
     <UICheckbox
       id="setting-2"
       class="my-3"
-      :model-value="body.enableColors"
+      :model-value="settings.enableColors"
       label="Включить цвета в ленте"
-      @update:model-value="body.enableColors = $event"
+      @update:model-value="setEnableColors($event)"
     >
       <template #additionalContent>
         <UIHelp text="Включение зеленого/желтого цвета" />
@@ -33,7 +34,7 @@
   </FormGroup>
 </template>
 
-<script lang="js">
+<script lang="ts">
 import Vue from 'vue';
 import UISelect from '~/components/UI/UISelect.vue';
 import FormGroup from '~/components/shared/FormGroup.vue';
@@ -41,6 +42,7 @@ import FormGroup from '~/components/shared/FormGroup.vue';
 import { TIMEZONE_OPTIONS } from '~/helpers/constants/pages/select-options.constants';
 import UICheckbox from '~/components/UI/UICheckbox.vue';
 import UIHelp from '~/components/UI/UIHelp.vue';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default Vue.extend({
   name: 'OtherSettingsForm',
@@ -61,9 +63,21 @@ export default Vue.extend({
   }),
 
   computed: {
+    ...mapGetters({
+      settings: 'settings.store/settings',
+    }),
+
     timezoneOptions() {
       return TIMEZONE_OPTIONS;
     },
+  },
+
+  methods: {
+    ...mapMutations({
+      setTimezone: 'settings.store/setTimezone',
+      setNewAnnouncements: 'settings.store/setAnnouncements',
+      setEnableColors: 'settings.store/setEnableColors',
+    }),
   },
 });
 </script>

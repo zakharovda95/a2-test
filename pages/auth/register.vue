@@ -15,10 +15,12 @@ import Vue from 'vue';
 import RegisterForm from '~/components/pages/auth/forms/RegisterForm.vue';
 
 export default Vue.extend({
-  name: 'RegisterPage',
+  name: 'AuthRegisterPage',
 
   components: {
     RegisterForm,
   },
+
+  middleware: 'guard',
 });
 </script>

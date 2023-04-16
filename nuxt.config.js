@@ -36,11 +36,7 @@ export default {
 
   buildModules: ['@nuxt/typescript-build', '@nuxtjs/tailwindcss'],
 
-  modules: ['@nuxtjs/axios', 'nuxt-user-agent'],
-
-  axios: {
-    baseURL: '/',
-  },
+  modules: ['@nuxtjs/axios', 'nuxt-user-agent', 'cookie-universal-nuxt'],
 
   build: {},
 };
